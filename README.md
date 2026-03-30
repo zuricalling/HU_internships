@@ -13,6 +13,17 @@
 
 ---
 
+## โครงสร้างโฟลเดอร์ (Project Structure)
+เพื่อให้ระบบเป็นระเบียบ เราแบ่งโฟลเดอร์ตามสิทธิ์การใช้งานดังนี้:
+
+* **`/student`**: หน้าจอและ Logic สำหรับนิสิต (ยื่นคำขอ, เช็คสถานะ)
+* **`/staff`**: หน้าจอสำหรับอาจารย์และเจ้าหน้าที่ (อนุมัติคำขอ, บันทึกนิเทศ)
+* **`/includes`**: ไฟล์ส่วนกลาง เช่น `db_connect.php` (ห้ามลบ/ย้าย)
+* **`/database`**: ไฟล์ SQL สำหรับ Import และ Data Dictionary (PDF)
+* **`/docs`**: เก็บเล่มรายงาน (.docx) และรูปภาพ Diagram ต่างๆ
+
+---
+
 ## โครงสร้างฐานข้อมูล (Database Structure)
 เราใช้ **MySQL** ในการจัดการข้อมูล โดยมีตารางหลักดังนี้:
 
@@ -20,7 +31,7 @@
 * **Master Data:** `company`, `status_master`, `course_showcase`
 * **Transactions:** `internships_request`, `status_log`, `supervision_record`
 
-> 📄 **รายละเอียดเชิงลึก:** สามารถดูได้ที่ไฟล์ [Data_Dictionary_v1.pdf](./database/Data_Dictionary_v1.pdf) ในโฟลเดอร์ `/database`
+> 📄 **รายละเอียดเชิงลึก:** สามารถดูได้ที่ไฟล์ [Data_Dictionary.pdf](./database/Data_Dictionary.pdf) ในโฟลเดอร์ `/database`
 
 ---
 
@@ -34,6 +45,16 @@
 
 ---
 
+## ข้อมูลการเข้าสู่ระบบ (Authentication)
+ระบบใช้ **`process_login.php`** ในการแยกสิทธิ์ (Role-based Access Control):
+
+| บทบาท | Username | สิทธิ์การเข้าถึง |
+| :--- | :--- | :--- |
+| **นิสิต** | รหัสนิสิต (student_code) | เข้าถึงโฟลเดอร์ `/student` |
+| **อาจารย์** | ชื่อผู้ใช้ (username) | เข้าถึงโฟลเดอร์ `/staff` |
+
+---
+
 ## วิธีการติดตั้งและรันโปรเจกต์ (Setup Guide)
 1. **Database:** - เปิด XAMPP > MySQL Admin (phpMyAdmin) หรือ DBeaver
    - สร้าง Database ชื่อ `internships`
@@ -41,19 +62,29 @@
 2. **Source Code:**
    - นำโฟลเดอร์โปรเจกต์ไปวางที่ `C:/xampp/htdocs/`
 3. **Configuration:**
-   - เช็คไฟล์ `connect.php` ว่า Username/Password ของ MySQL ตรงกับเครื่องตัวเองไหม
+   - ไฟล์หลักคือ `includes/db_connect.php`
+   - ตรวจสอบ Username/Password ของ MySQL ให้ตรงกับเครื่องตัวเอง
 4. **Access:**
-   - เปิดเบราว์เซอร์ไปที่ `http://localhost/internships_system/login.php`
+   - เปิดเบราว์เซอร์ไปที่ `http://localhost/hu_internships/login.php`
+5. **การเขียนโค้ดเรียกใช้ DB:**
+    * หากเขียนไฟล์ใน `/student` หรือ `/staff` ให้ใช้: 
+      `require_once '../includes/db_connect.php';`
 
 ---
 
-## 🤝 การแบ่งงานในทีม (Team Collaboration)
-* **Database & Backend Logic:** [ไอโกะ ณัฏฐณิชา พลาธรณ์ 67101010619]
-* **Frontend & UI Design:** [ฟีฟ่า ธฤษณัช ภานุกาญจน์ 67101010128,
-ใบเตย สุนัดดา แสงแก้ว 67101010132]
-* **System Logic & Integration:** [เนเน่ ชลธิชา คุณเพิ่มศิริ 67101010617, โต๋ ภูรินท์ กูลมนุญ 67101010641]
-* **Flowchart internship และรูปแล่มโครงงาน** [พลอย ณิชาภัทร จันทร์เอี่ยม 67101010620]
+
+## การแบ่งงานในทีม (Team Collaboration)
+* **Database & Backend Logic (DBA) :** [ไอโกะ ณัฏฐณิชา]
+* **Frontend & UI Design:** [ฟีฟ่า ธฤษณัช, ใบเตย สุนัดดา]
+* **System Logic & Integration:** [เนเน่ ชลธิชา, โต๋ ภูรินท์]
+* **Flowchart/Docs:** [พลอย ณิชาภัทร]
 
 ---
 
-**⚠️ หมายเหตุ:** หากมีการแก้ไขโครงสร้างตาราง รบกวนแจ้ง DBA พื่ออัปเดตไฟล์ SQL กลางทุกครั้ง!
+** หมายเหตุ:** หากมีการแก้ไขโครงสร้างตาราง รบกวนแจ้ง DBA พื่ออัปเดตไฟล์ SQL กลางทุกครั้ง!
+
+---
+
+## บันทึกการแก้ไข (Change Log)
+* **v1.1**: ปรับโครงสร้างโฟลเดอร์ตามคำแนะนำอาจารย์ (เพิ่ม /includes, /student, /staff)
+* **v1.0**: เริ่มต้นโครงสร้างฐานข้อมูลและระบบบันทึกคำขอพื้นฐาน
