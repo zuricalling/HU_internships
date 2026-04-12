@@ -1,25 +1,3 @@
-<?php 
-include 'db_connect.php'; 
-$error = ""; 
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $u = $conn->real_escape_string($_POST['u']); 
-    $p = $conn->real_escape_string($_POST['p']);
-    
-    // เช็คฐานข้อมูลเฉพาะ Role = teacher
-    $r = $conn->query("SELECT * FROM users WHERE username='$u' AND password='$p' AND role='teacher'");
-    
-    if ($r->num_rows > 0) { 
-        $_SESSION['user_id'] = $r->fetch_assoc()['id']; 
-        $_SESSION['role'] = 'teacher'; 
-        $_SESSION['username'] = $u; 
-        header("Location: teacher_dashboard.php"); 
-        exit();
-    } else { 
-        $error = "รหัสผู้ใช้ หรือ รหัสผ่าน ไม่ถูกต้อง (เฉพาะอาจารย์)"; 
-    }
-} 
-?>
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -57,9 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         <h3 class="fw-bold" style="color: #1a2232;">Teacher Login</h3>
         <p class="text-muted small mb-4">เข้าสู่ระบบสำหรับ "อาจารย์ที่ปรึกษา"</p>
-        
-        <?php if($error) echo "<div class='alert alert-danger py-2 small fw-bold'><i class='fas fa-exclamation-circle'></i> $error</div>"; ?>
-        
         <form method="POST">
             <label class="login-label">Username</label>
             <div class="input-group custom-input-group">

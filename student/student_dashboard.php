@@ -1,11 +1,3 @@
-<?php include 'db_connect.php'; if(!isset($_SESSION['user_id']) || $_SESSION['role']!='student') { header("Location: portal.php"); exit(); }
-$sid = $_SESSION['username']; $msg="";
-if($_SERVER['REQUEST_METHOD']=='POST'){
-    $conn->query("INSERT INTO internship_requests (student_id, company_name, position, start_date, end_date) VALUES ('$sid', '{$_POST['c']}', '{$_POST['p']}', '{$_POST['s']}', '{$_POST['e']}')");
-    $msg="<div class='alert alert-success py-2 small'>บันทึกเข้าสู่ระบบเรียบร้อย</div>";
-}
-$res = $conn->query("SELECT * FROM internship_requests WHERE student_id='$sid' ORDER BY id DESC");
-?>
 <!DOCTYPE html><html lang="th"><head><meta charset="UTF-8"><title>ระบบนิสิต</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><link rel="stylesheet" href="style.css"></head>
 <body class="dash-body p-0">
     <div class="dash-topbar d-flex justify-content-between align-items-center">

@@ -1,25 +1,3 @@
-<?php 
-include 'db_connect.php'; 
-$error = ""; 
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $u = $conn->real_escape_string($_POST['u']); 
-    $p = $conn->real_escape_string($_POST['p']);
-    
-    // เช็คฐานข้อมูลเฉพาะ Role = student
-    $r = $conn->query("SELECT * FROM users WHERE username='$u' AND password='$p' AND role='student'");
-    
-    if ($r->num_rows > 0) { 
-        $_SESSION['user_id'] = $r->fetch_assoc()['id']; 
-        $_SESSION['role'] = 'student'; 
-        $_SESSION['username'] = $u; 
-        header("Location: student_dashboard.php"); 
-        exit();
-    } else { 
-        $error = "รหัสผู้ใช้ ไม่ถูกต้อง หรือคุณไม่ใช่กลุ่มนิสิต"; 
-    }
-} 
-?>
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -57,8 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         <h3 class="fw-bold" style="color: #9b111e;">นิสิต Login</h3>
         <p class="text-muted small mb-4">เข้าสู่ระบบ Internship ด้วยบัญชีนิสิต</p>
-        
-        <?php if($error) echo "<div class='alert alert-danger py-2 small fw-bold'><i class='fas fa-exclamation-circle'></i> $error</div>"; ?>
         
         <form method="POST">
             <label class="login-label">รหัสนิสิต (Username)</label>
