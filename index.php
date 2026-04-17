@@ -81,32 +81,24 @@
         <div class="carousel-inner">
             <!-- รูปที่ 1 -->
             <div class="carousel-item active">
-                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920" alt="Students">
+                <img src="./img/sirigit.jpg" alt="sirigit">
                 <div class="carousel-overlay"></div>
-                <div class="custom-caption">
-                    <h1>Information Studies Internships</h1>
-                    <p>ระบบจัดการฝึกงาน หลักสูตรสารสนเทศศึกษา มศว</p>
-                </div>
             </div>
             
             <!-- รูปที่ 2 -->
             <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920" alt="University">
+                <img src="./img/welcome.jpg" alt="University">
                 <div class="carousel-overlay"></div>
                 <div class="custom-caption">
-                    <h1>Learning University for Society</h1>
-                    <p>พัฒนานวัตกร ยกระดับสังคมแห่งการเรียนรู้</p>
+                    <h1>หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาสารสนเทศศึกษา</h1>
+                    <p>คณะมนุษยศาสตร์ มหาวิทยาลัยศรีนครินทรวิโรฒ</p>
                 </div>
             </div>
 
             <!-- รูปที่ 3 -->
             <div class="carousel-item">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=1920" alt="Technology">
+                <img src="./img/sornkran.jpg" alt="festival">
                 <div class="carousel-overlay"></div>
-                <div class="custom-caption">
-                    <h1>Professional Experience</h1>
-                    <p>ก้าวสู่โลกแห่งการทำงานจริงด้วยประสบการณ์สหกิจศึกษา</p>
-                </div>
             </div>
         </div>
 

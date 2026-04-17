@@ -1,4 +1,4 @@
-<?php include 'db_connect.php'; ?>
+<?php include('includes/db_connect.php'); ?>
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -13,13 +13,13 @@
     <style>
         /* ================= แบนเนอร์ด้านบนสุด (ตามรูปเป๊ะ) ================= */
         .studyplan-hero {
-            /* ใช้ไล่สีแดงสไตล์ มศว 90% ทับบนรูปภาพบรรยากาศรับปริญญา */
-            background: linear-gradient(135deg, rgba(196, 18, 45, 0.92), rgba(138, 21, 35, 0.95)), url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920') center/cover;
-            padding: 120px 0 60px 0;
-            margin-top: 60px; /* เว้นระยะลงมาจากเมนู Navbar */
+            background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920') center/cover;
+            padding: 80px 0 !important; /* <--- บังคับให้บน-ล่างกว้าง 80px เท่ากัน */
             color: white;
             text-align: center;
-        }
+            margin-top: 0 !important;
+            margin-bottom: 40px;
+            }
 
         /* ================= ตกแต่งกระดาษและโครงสร้างเนื้อหา ================= */
         .studyplan-wrapper {
@@ -70,15 +70,11 @@
     <?php include 'navbar.php'; ?>
 
     <!-- ================= แบนเนอร์สีแดงด้านบน ตามเรฟเฟอเรนซ์ ================= -->
-    <div class="studyplan-hero shadow-sm">
-        <div class="container">
-            <!-- ไอคอนหมวกรับปริญญา -->
-            <i class="fas fa-graduation-cap text-white mb-3" style="font-size: 45px;"></i>
-            <!-- ข้อความ -->
-            <h1 class="fw-bold mb-3 text-white" style="text-shadow: 1px 1px 5px rgba(0,0,0,0.2);">รายละเอียดของหลักสูตร</h1>
-            <p class="fs-6 fw-light mb-4 text-white">หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาสารสนเทศศึกษา</p>
-            <!-- ป้ายทรงแคปซูลยา สีขาว-แดง -->
-            <span class="badge bg-white text-danger rounded-pill px-4 py-2 fs-6 shadow-sm fw-bold">หลักสูตรปรับปรุง พ.ศ. 2565</span>
+    <div class="studyplan-hero pb-5">
+        <div class="container py-4">
+             <h1 class="fw-bold mb-3"><i class="fas fa-graduation-cap mb-2"></i><br>รายละเอียดของหลักสูตร</h1>
+            <h5 class="fw-light mb-4">หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาสารสนเทศศึกษา</h5>
+            <span class="badge bg-light text-danger fs-6 rounded-pill px-4 py-2 shadow-sm">หลักสูตรปรับปรุง พ.ศ. 2565</span>
         </div>
     </div>
 

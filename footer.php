@@ -61,7 +61,7 @@
             <!-- ================= คอลัมน์ที่ 1 : โลโก้และที่อยู่ ================= -->
             <div class="col-lg-4 col-md-12">
                 <!-- โลโก้ มศว สีขาวล้วนพื้นใส -->
-                <img src="https://reg.swu.ac.th/images/swu-logo-light.svg" width="220" class="mb-4" alt="SWU Logo">
+                <img src="./img/swuLogo2.png" width="100" class="mb-4" alt="SWU Logo">
                 
                 <div class="contact-info-text mb-4">
                     114 สุขุมวิท 23, กรุงเทพ 10110<br>

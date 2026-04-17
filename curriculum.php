@@ -16,12 +16,12 @@
         
         .curriculum-hero {
             background: linear-gradient(135deg, rgba(196, 18, 45, 0.9), rgba(33, 37, 41, 0.9)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=1920') center/cover;
-            padding: 100px 0 50px 0;
+            padding: 80px 0 !important; /* <--- บังคับให้บน-ล่างกว้าง 80px เท่ากัน */
             color: white;
             text-align: center;
-            margin-top: 60px; /* กัน Navbar บัง */
-        }
-
+            margin-top: 0 !important;
+            margin-bottom: 40px;
+            }
         .section-title {
             color: #212529;
             font-weight: 800;
@@ -76,8 +76,8 @@
     <?php include 'navbar.php'; ?>
 
     <!-- ================= 1. แบนเนอร์หัวเรื่อง ================= -->
-    <div class="curriculum-hero">
-        <div class="container">
+    <div class="curriculum-hero pb-5">
+        <div class="container py-4">
             <h1 class="fw-bold mb-3"><i class="fas fa-graduation-cap mb-2"></i><br>รายละเอียดของหลักสูตร</h1>
             <h5 class="fw-light mb-4">หลักสูตรศิลปศาสตรบัณฑิต สาขาวิชาสารสนเทศศึกษา</h5>
             <span class="badge bg-light text-danger fs-6 rounded-pill px-4 py-2 shadow-sm">หลักสูตรปรับปรุง พ.ศ. 2565</span>

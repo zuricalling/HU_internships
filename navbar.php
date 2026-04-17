@@ -6,7 +6,7 @@
         
         <!-- โลโก้ มศว (อัปเดตลิงก์รูปภาพใหม่ ไม่แตกแน่นอน) -->
         <a class="navbar-brand d-flex align-items-center" href="index.php">
-            <img src="https://pr.swu.ac.th/swu-logo/SWU-Logo-th.png" alt="SWU Logo" height="50">
+            <img src="./img/swu_Logo.png" alt="SWU Logo" height="50">
             <div class="logo-text ms-2">
                 <h1 class="mb-0 text-dark fw-bold" style="font-size: 18px;">มหาวิทยาลัยศรีนครินทรวิโรฒ</h1>
                 <p class="mb-0 text-muted" style="font-size: 11px; letter-spacing: 0.5px;">SRINAKHARINWIROT UNIVERSITY | INFORMATION STUDIES</p>
