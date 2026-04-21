@@ -92,31 +92,40 @@
         text-indent: 40px;
         line-height: 1.6;
     }
+
     /* จัดให้อยู่ตรงกลางและมีระยะห่าง */
-.pagination-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px; /* ระยะห่างระหว่างจุด */
-  margin-top: 20px; /* ระยะห่างจากตัวการ์ดด้านบน */
-}
+    .pagination-dots {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        /* ระยะห่างระหว่างจุด */
+        margin-top: 20px;
+        /* ระยะห่างจากตัวการ์ดด้านบน */
+    }
 
-/* รูปร่างของจุดปกติ (สีเทา) */
-.pagination-dots .dot {
-  width: 12px;
-  height: 12px;
-  background-color: #e0e0e0; /* สีเทาอ่อน */
-  border-radius: 50%; /* ทำให้เป็นวงกลม */
-  cursor: pointer;
-  transition: all 0.3s ease; /* ให้ตอนเปลี่ยนสีสมูทขึ้น */
-}
+    /* รูปร่างของจุดปกติ (สีเทา) */
+    .pagination-dots .dot {
+        width: 12px;
+        height: 12px;
+        background-color: #e0e0e0;
+        /* สีเทาอ่อน */
+        border-radius: 50%;
+        /* ทำให้เป็นวงกลม */
+        cursor: pointer;
+        transition: all 0.3s ease;
+        /* ให้ตอนเปลี่ยนสีสมูทขึ้น */
+    }
 
-/* รูปร่างของจุดที่ถูกเลือก (สีแดงยาว) */
-.pagination-dots .dot.active {
-  width: 32px; /* ขยายความกว้างให้เป็นแคปซูล */
-  background-color: #c8102e; /* สีแดงแบบในรูป */
-  border-radius: 10px; /* ขอบมน */
-}
+    /* รูปร่างของจุดที่ถูกเลือก (สีแดงยาว) */
+    .pagination-dots .dot.active {
+        width: 32px;
+        /* ขยายความกว้างให้เป็นแคปซูล */
+        background-color: #c8102e;
+        /* สีแดงแบบในรูป */
+        border-radius: 10px;
+        /* ขอบมน */
+    }
     </style>
 </head>
 
@@ -1194,8 +1203,8 @@
             </div>
         </div>
         <div class="pagination-dots">
-                <span class="dot active"></span> <span class="dot"></span> <span class="dot"></span>
-            </div>
+            <span class="dot active"></span> <span class="dot"></span> <span class="dot"></span>
+        </div>
     </div>
 
     <?php include 'footer.php'; ?>
@@ -1203,151 +1212,167 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-// ==========================================
-// 1. ประกาศตัวแปรทั้งหมด
-// ==========================================
-const filterBtns = document.querySelectorAll('.filter-btn-group .btn');
-const activityItems = document.querySelectorAll('.a-item');
-const gridContainer = document.getElementById('activity-grid');
-const btnPrev = document.getElementById('slidePrev');
-const btnNext = document.getElementById('slideNext');
-const dotsContainer = document.querySelector('.pagination-dots');
+    // ==========================================
+    // 1. ประกาศตัวแปรทั้งหมด
+    // ==========================================
+    const filterBtns = document.querySelectorAll('.filter-btn-group .btn');
+    const activityItems = document.querySelectorAll('.a-item');
+    const gridContainer = document.getElementById('activity-grid');
+    const btnPrev = document.getElementById('slidePrev');
+    const btnNext = document.getElementById('slideNext');
+    const dotsContainer = document.querySelector('.pagination-dots');
 
-function getVisibleCards() {
-    return Array.from(activityItems).filter(item => item.style.display !== 'none');
-}
+    function getVisibleCards() {
+        return Array.from(activityItems).filter(item => item.style.display !== 'none');
+    }
 
-// ==========================================
-// 2. Script สำหรับ Filter คัดกรองข่าว
-// ==========================================
-filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    // ==========================================
+    // 2. Script สำหรับ Filter คัดกรองข่าว
+    // ==========================================
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
 
-        const filterValue = btn.getAttribute('data-filter');
+            const filterValue = btn.getAttribute('data-filter');
 
-        activityItems.forEach(item => {
-            item.style.display = (filterValue === 'all' || item.classList.contains(filterValue)) ? 'block' : 'none';
+            activityItems.forEach(item => {
+                item.style.display = (filterValue === 'all' || item.classList.contains(
+                    filterValue)) ? 'block' : 'none';
+            });
+
+            // รอให้จัดหน้าเสร็จแล้วคำนวณจุดใหม่
+            setTimeout(generateDots, 50);
         });
-
-        // รอให้จัดหน้าเสร็จแล้วคำนวณจุดใหม่
-        setTimeout(generateDots, 50); 
     });
-});
 
-// ==========================================
-// 3. Script สำหรับปุ่มเลื่อนซ้าย-ขวา (แบบเสถียร)
-// ==========================================
-btnNext.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    if (visibleCards.length === 0) return;
+    // ==========================================
+    // 3. Script สำหรับปุ่มเลื่อนซ้าย-ขวา (แบบเสถียร)
+    // ==========================================
+    btnNext.addEventListener('click', () => {
+        const visibleCards = getVisibleCards();
+        if (visibleCards.length === 0) return;
 
-    const scrollAmount = visibleCards[0].offsetWidth + 24; 
-    const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
+        const scrollAmount = visibleCards[0].offsetWidth + 24;
+        const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
 
-    // เช็กว่าเลื่อนมาจนสุดขอบขวาหรือยัง (เผื่อไว้ 10px กันเบราว์เซอร์ปัดเศษ)
-    if (Math.ceil(gridContainer.scrollLeft) >= maxScrollLeft - 10) {
-        // ถ้าสุดแล้ว ให้เลื่อนฟรื้ดดด กลับไปหน้าแรก
-        gridContainer.scrollTo({ left: 0, behavior: 'smooth' });
-    } else {
-        // ถ้ายังไม่สุด เลื่อนทีละการ์ด
-        gridContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-});
-
-btnPrev.addEventListener('click', () => {
-    const visibleCards = getVisibleCards();
-    if (visibleCards.length === 0) return;
-
-    const scrollAmount = visibleCards[0].offsetWidth + 24;
-    const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
-
-    // เช็กว่าอยู่หน้าซ้ายสุดหรือยัง
-    if (gridContainer.scrollLeft <= 10) {
-        // ถ้าอยู่หน้าแรกแล้วกดถอยหลัง ให้เลื่อนไปหน้าสุดท้าย
-        gridContainer.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
-    } else {
-        // ถอยหลังทีละการ์ด
-        gridContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-    }
-});
-
-// ==========================================
-// 4. Script สำหรับ Pagination Dots
-// ==========================================
-function generateDots() {
-    if (!dotsContainer) return;
-
-    dotsContainer.innerHTML = ''; // ล้างจุดเก่า
-
-    const visibleCards = getVisibleCards();
-    const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
-    
-    if (visibleCards.length === 0 || maxScrollLeft <= 0) return;
-
-    const scrollAmount = visibleCards[0].offsetWidth + 24; 
-    const numDots = Math.ceil(maxScrollLeft / scrollAmount) + 1;
-
-    for (let i = 0; i < numDots; i++) {
-        const dot = document.createElement('span');
-        dot.classList.add('dot');
-        
-        // กลับมาใช้ฟังก์ชันคลิกที่จุดเพื่อเลื่อนได้ตามปกติ
-        dot.addEventListener('click', () => {
+        // เช็กว่าเลื่อนมาจนสุดขอบขวาหรือยัง (เผื่อไว้ 10px กันเบราว์เซอร์ปัดเศษ)
+        if (Math.ceil(gridContainer.scrollLeft) >= maxScrollLeft - 10) {
+            // ถ้าสุดแล้ว ให้เลื่อนฟรื้ดดด กลับไปหน้าแรก
             gridContainer.scrollTo({
-                left: scrollAmount * i,
+                left: 0,
                 behavior: 'smooth'
             });
+        } else {
+            // ถ้ายังไม่สุด เลื่อนทีละการ์ด
+            gridContainer.scrollBy({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    btnPrev.addEventListener('click', () => {
+        const visibleCards = getVisibleCards();
+        if (visibleCards.length === 0) return;
+
+        const scrollAmount = visibleCards[0].offsetWidth + 24;
+        const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
+
+        // เช็กว่าอยู่หน้าซ้ายสุดหรือยัง
+        if (gridContainer.scrollLeft <= 10) {
+            // ถ้าอยู่หน้าแรกแล้วกดถอยหลัง ให้เลื่อนไปหน้าสุดท้าย
+            gridContainer.scrollTo({
+                left: maxScrollLeft,
+                behavior: 'smooth'
+            });
+        } else {
+            // ถอยหลังทีละการ์ด
+            gridContainer.scrollBy({
+                left: -scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    });
+
+    // ==========================================
+    // 4. Script สำหรับ Pagination Dots
+    // ==========================================
+    function generateDots() {
+        if (!dotsContainer) return;
+
+        dotsContainer.innerHTML = ''; // ล้างจุดเก่า
+
+        const visibleCards = getVisibleCards();
+        const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
+
+        if (visibleCards.length === 0 || maxScrollLeft <= 0) return;
+
+        const scrollAmount = visibleCards[0].offsetWidth + 24;
+        const numDots = Math.ceil(maxScrollLeft / scrollAmount) + 1;
+
+        for (let i = 0; i < numDots; i++) {
+            const dot = document.createElement('span');
+            dot.classList.add('dot');
+
+            // กลับมาใช้ฟังก์ชันคลิกที่จุดเพื่อเลื่อนได้ตามปกติ
+            dot.addEventListener('click', () => {
+                gridContainer.scrollTo({
+                    left: scrollAmount * i,
+                    behavior: 'smooth'
+                });
+            });
+
+            dotsContainer.appendChild(dot);
+        }
+
+        // เลื่อนกลับจุดเริ่มต้น
+        gridContainer.scrollTo({
+            left: 0,
+            behavior: 'smooth'
         });
-
-        dotsContainer.appendChild(dot);
+        setTimeout(updatePagination, 50);
     }
 
-    // เลื่อนกลับจุดเริ่มต้น
-    gridContainer.scrollTo({ left: 0, behavior: 'smooth' });
-    setTimeout(updatePagination, 50);
-}
+    function updatePagination() {
+        const currentDots = document.querySelectorAll('.pagination-dots .dot');
+        if (currentDots.length === 0) return;
 
-function updatePagination() {
-    const currentDots = document.querySelectorAll('.pagination-dots .dot');
-    if (currentDots.length === 0) return;
+        const visibleCards = getVisibleCards();
+        if (visibleCards.length === 0) return;
 
-    const visibleCards = getVisibleCards();
-    if (visibleCards.length === 0) return;
+        const scrollAmount = visibleCards[0].offsetWidth + 24;
+        const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
+        const currentScroll = gridContainer.scrollLeft;
 
-    const scrollAmount = visibleCards[0].offsetWidth + 24; 
-    const maxScrollLeft = gridContainer.scrollWidth - gridContainer.clientWidth;
-    const currentScroll = gridContainer.scrollLeft;
+        let currentIndex = 0;
 
-    let currentIndex = 0;
+        if (Math.ceil(currentScroll) >= maxScrollLeft - 10) {
+            currentIndex = currentDots.length - 1;
+        } else {
+            currentIndex = Math.round(currentScroll / scrollAmount);
+        }
 
-    if (Math.ceil(currentScroll) >= maxScrollLeft - 10) {
-        currentIndex = currentDots.length - 1;
-    } else {
-        currentIndex = Math.round(currentScroll / scrollAmount);
+        if (currentIndex >= currentDots.length) currentIndex = currentDots.length - 1;
+        if (currentIndex < 0) currentIndex = 0;
+
+        currentDots.forEach(dot => dot.classList.remove('active'));
+        if (currentDots[currentIndex]) {
+            currentDots[currentIndex].classList.add('active');
+        }
     }
 
-    if (currentIndex >= currentDots.length) currentIndex = currentDots.length - 1;
-    if (currentIndex < 0) currentIndex = 0;
+    gridContainer.addEventListener('scroll', () => {
+        window.requestAnimationFrame(updatePagination);
+    });
 
-    currentDots.forEach(dot => dot.classList.remove('active'));
-    if (currentDots[currentIndex]) {
-        currentDots[currentIndex].classList.add('active');
-    }
-}
+    window.addEventListener('resize', () => {
+        generateDots();
+    });
 
-gridContainer.addEventListener('scroll', () => {
-    window.requestAnimationFrame(updatePagination);
-});
-
-window.addEventListener('resize', () => {
+    // รันครั้งแรกตอนโหลดเว็บ
     generateDots();
-});
-
-// รันครั้งแรกตอนโหลดเว็บ
-generateDots();
-</script>
+    </script>
 </body>
 
 </html>
