@@ -126,6 +126,34 @@ $msg = "";
                         <input type="text" name="major" class="form-control" placeholder="สารสนเทศศึกษา">
                     </div>
                 </div>
+                <!-- ================= เพิ่มใหม่: กล่องเลือกภาคเรียน ================= -->
+                <div class="col-md-6">
+                    <label class="reg-label">ภาคการศึกษา (Program Type)</label>
+                    <div class="custom-input">
+                        <span class="input-group-text"><i class="fas fa-clock"></i></span>
+                        <!-- ใช้แท็ก select แทน input เพื่อทำ Dropdown -->
+                        <select name="program_type" class="form-control" style="appearance: auto; cursor: pointer;">
+                            <option value="" disabled selected>เลือกภาคการศึกษา</option>
+                            <option value="ปกติ">ภาคปกติ</option>
+                            <option value="พิเศษ">ภาคพิเศษ</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- ================= เพิ่มใหม่: กล่องเลือกชั้นปี ================= -->
+                <div class="col-md-6">
+                    <label class="reg-label">ชั้นปี (Year Level)</label>
+                    <div class="custom-input">
+                        <span class="input-group-text"><i class="fas fa-layer-group"></i></span>
+                        <select name="year_level" class="form-control" style="appearance: auto; cursor: pointer;">
+                            <option value="" disabled selected>เลือกชั้นปี</option>
+                            <option value="1">ชั้นปีที่ 1</option>
+                            <option value="2">ชั้นปีที่ 2</option>
+                            <option value="3">ชั้นปีที่ 3</option>
+                            <option value="4">ชั้นปีที่ 4</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- ================= จบส่วนที่เพิ่มใหม่ ================= -->
                 
                 <div class="col-md-6">
                     <label class="reg-label">เกรดเฉลี่ยสะสม (GPA)</label>

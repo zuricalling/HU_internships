@@ -132,16 +132,16 @@
 <body style="background-color: #f8f9fa;">
 
     <?php include 'navbar.php'; ?>
-
+<!-- กล่องด้านบนที่เป็นรูปภาพพร้อมตัวอักาณ -->
     <div class="activity-hero pb-5">
         <div class="container py-4">
             <h1 class="fw-bold mb-3"><i class="fas fa-camera-retro mb-2"></i><br>ข่าวสารกิจกรรม & IS Showcase</h1>
             <p class="fs-6 fw-light mb-0">ผลงานนวัตกรรม โครงการ และชีวิตนิสิตในรั้วมหาวิทยาลัยศรีนครินทรวิโรฒ</p>
         </div>
     </div>
-
-    <div class="container py-5 mb-5">
-
+<!-- จบกล่องด้านบน -->
+    <div class="container pt-2 pb-5">
+        <!-- กล่องตัวเลือกกิจกรรม -->
         <div class="text-center filter-btn-group mb-5">
             <button class="btn active" data-filter="all">ทั้งหมด</button>
             <button class="btn" data-filter="showcase"><i class="fas fa-star"></i> ผลงาน</button>
@@ -154,7 +154,7 @@
             <button class="slide-btn slide-btn-prev" id="slidePrev">
                 <i class="fas fa-chevron-left"></i>
             </button>
-
+        <!-- จบกล่องตัวเลือก -->
             <div class="row g-4" id="activity-grid">
                 <!-- การ์ดกิจกรรมที่ 1 -->
                 <div class="col-lg-4 col-md-6 a-item showcase" style="min-width: 320px;">

@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คณาจารย์ประจำหลักสูตร - IS SWU</title>
+    <title>คณะผู้จัดทำ</title>
     <!-- ไฟล์ CSS Bootstrap และ FontAwesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -42,24 +42,25 @@
     }
 
     .profile-img-wrapper {
-        width: 140px;
-        height: 140px;
+        width: 180px;         /* 1. เปลี่ยนขนาดความกว้าง (ปรับตัวเลขได้ตามต้องการ) */
+        height: 250px;        /* 2. เปลี่ยนขนาดความสูง ให้เป็นทรงสี่เหลี่ยมแนวตั้ง */
         background-color: #f8f9fa;
-        border-radius: 50%;
+        border-radius: 8px;   /* 3. **แก้ตรงนี้** จาก 50% เป็น 8px (ขอบมนนิดๆ ถ้าอยากได้เหลี่ยมเป๊ะๆ ให้ใส่ 0) */
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto 20px auto;
+        margin: 0 40px 0 0;   /* 4. **แก้ตรงนี้** เปลี่ยน margin เพื่อไม่ให้อยู่ตรงกลาง และเว้นระยะด้านขวา 20px ให้ข้อความ */
+        flex-shrink: 0;       /* 5. เพิ่มคำสั่งนี้ ป้องกันไม่ให้รูปถูกบีบจนแบนเวลาหน้าจอแคบ */
         overflow: hidden;
         border: 3px solid white;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .profile-img-wrapper img {
-        width: 85%;
-        height: 85%;
+        width: 100%;          /* 6. **แก้ตรงนี้** เปลี่ยนจาก 85% เป็น 100% เพื่อให้รูปเต็มกรอบสี่เหลี่ยมพอดี */
+        height: 100%;         /* 7. **แก้ตรงนี้** เปลี่ยนจาก 85% เป็น 100% */
         object-fit: cover;
-        border-radius: 50%;
+        border-radius: 0;     /* 8. **แก้ตรงนี้** เอา 50% ออก เพื่อไม่ให้ตัวรูปโดนตัดเป็นวงกลมซ้อนข้างในอีกที */
     }
 
     .click-hint {
@@ -102,7 +103,7 @@
     <div class="teacher-hero pb-5">
         <div class="container py-4">
             <h1 class="fw-bold mb-3">
-                <i class="fas fa-chalkboard-teacher mb-2"></i>
+                <i class="fa-solid fa-users"></i>
                 <br>คณะผู้จัดทำ
             </h1>
             <p class="fs-6 fw-light mb-0">รายชื่อนิสิตผู้จัดทำและพัฒนาเว๊บไซต์</p>
@@ -116,82 +117,111 @@
         <div class="container py-3 mb-2" style="max-width: 1100px;">
             <div class="row g-4 justify-content-center">
 
-                <!-- ================ อาจารย์ dit ================ -->
+                <!-- ================ กล่องรูปฟีฟ่า ================ -->
                 <div class="col-12 mb-4">
-                    <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
+                    <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg">
+                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
                         </div>
-                        <h6 class="fw-bold fs-6 text-dark mb-1">ธฤษณัช ภานุกาญจน์</h6>
-                        <p class="text-secondary fw-bold mb-2" style="font-size: 12px;">ฟีฟ่า</p>
-                        <p class="text-muted small" style="line-height: 1.5; height: 40px;">67101010128</p>
-                    
+
+                        <!-- ข้อความประวัติ ฟีฟ่า-->
+                        <div>
+                           <h6 class="fw-bold fs-4 text-dark mb-1">ธฤษณัช ภานุกาญจน์</h6>
+                           <p class="text-secondary fw-bold mb-0" style="font-size: 18px;">ฟีฟ่า</p>
+                           <p class="text-muted mb-0" style="font-size: 18px; line-height: 1.5;">67101010128</p>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- ================ อาจารย์ thiti================ -->
-                <div class="col-12 col-md-8 col-lg-5">
-                    <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#modalTeacher2">
+                <!-- ================ กล่องรูปใบเตย ================ -->
+                <div class="col-12 mb-4">
+                    <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_thiti.jpg">
+                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
                         </div>
-                        <h6 class="fw-bold fs-6 text-dark mb-1">สุนัดดา แสงแก้ว</h6>
-                        <p class="text-secondary fw-bold mb-2" style="font-size: 12px;">ใบเตย</p>
-                        <p class="text-muted small" style="line-height: 1.5; height: 40px;">67101010132</p>
-                        
+
+                        <!-- ข้อความประวัติ ใบเตย-->
+                        <div>
+                           <h6 class="fw-bold fs-4 text-dark mb-1"> สุนัดดา แสงแก้ว</h6>
+                           <p class="text-secondary fw-bold mb-0" style="font-size: 18px;">ใบเตย</p>
+                           <p class="text-muted mb-0" style="font-size: 18px; line-height: 1.5;">67101010132</p>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- ================ อาจารย์ vipakorn ================ -->
-                <div class="col-12 col-md-8 col-lg-5">
-                    <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#modalTeacher3">
+
+                <!-- ================ กล่องรูปเนเน่ ================ -->
+                <div class="col-12 mb-4">
+                    <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Vipakorn.jpg">
+                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
                         </div>
-                        <h6 class="fw-bold fs-6 text-dark mb-1"> ชลธิชา คุณเพิ่มศิริ</h6>
-                        <p class="text-secondary fw-bold mb-2" style="font-size: 12px;">เนเน่</p>
-                        <p class="text-muted small" style="line-height: 1.5; height: 40px;">67101010617</p>
-                        
+
+                        <!-- ข้อความประวัติ เนเน่-->
+                        <div>
+                           <h6 class="fw-bold fs-4 text-dark mb-1">ชลธิชา คุณเพิ่มศิริ</h6>
+                           <p class="text-secondary fw-bold mb-0" style="font-size: 18px;">เนเน่</p>
+                           <p class="text-muted mb-0" style="font-size: 18px; line-height: 1.5;">67101010617</p>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- ================ อาจารย์ chok ================ -->
-                <div class="col-12 col-md-8 col-lg-5">
-                    <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#modalTeacher4">
+
+                <!-- ================ กล่องรูปไอโกะ ================ -->
+                <div class="col-12 mb-4">
+                    <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Chokthamrong.jpg">
+                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
                         </div>
-                        <h6 class="fw-bold fs-6 text-dark mb-1"> ณัฏฐณิชา พลาธรณ์</h6>
-                        <p class="text-secondary fw-bold mb-2" style="font-size: 12px;">ไอโกะ </p>
-                        <p class="text-muted small" style="line-height: 1.5; height: 40px;">67101010619</p>
-                        
+
+                        <!-- ข้อความประวัติ ไอโกะ-->
+                        <div>
+                           <h6 class="fw-bold fs-4 text-dark mb-1">ณัฏฐณิชา พลาธรณ์</h6>
+                           <p class="text-secondary fw-bold mb-0" style="font-size: 18px;">ไอโกะ</p>
+                           <p class="text-muted mb-0" style="font-size: 18px; line-height: 1.5;;">67101010619</p>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- ================ อาจารย์ chotima ================ -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#modalTeacher5">
+
+                <!-- ================ กล่องรูปพลอย ================ -->
+               <div class="col-12 mb-4">
+                    <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Chotima.jpg">
+                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
                         </div>
-                        <h6 class="fw-bold fs-6 text-dark mb-1">ณิชาภัทร จันทร์เอี่ยม</h6>
-                        <p class="text-secondary fw-bold mb-2" style="font-size: 12px;">พลอย</p>
-                        <p class="text-muted small" style="line-height: 1.5; height: 40px;">67101010620</p>
-                        
+
+                        <!-- ข้อความประวัติ พลอย-->
+                        <div>
+                           <h6 class="fw-bold fs-4 text-dark mb-1">ณิชาภัทร จันทร์เอี่ยม</h6>
+                           <p class="text-secondary fw-bold mb-0" style="font-size: 18px;">พลอย</p>
+                           <p class="text-muted mb-0" style="font-size: 18px; line-height: 1.5;">67101010620</p>
+                        </div>
+
                     </div>
                 </div>
-                <!-- ================ อาจารย์ dussadee ================ -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="teacher-card" data-bs-toggle="modal" data-bs-target="#modalTeacher6">
+
+                <!-- ================ กล่องรูปโต๋ ================ -->
+                <div class="col-12 mb-4">
+                    <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dussadee.jpg">
+                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
                         </div>
-                        <h6 class="fw-bold fs-6 text-dark mb-1">ภูรินท์ กูลมนุญ</h6>
-                        <p class="text-secondary fw-bold mb-2" style="font-size: 12px;">โต๋</p>
-                        <p class="text-muted small" style="line-height: 1.5; height: 40px;">67101010641</p>
-                        
+
+                        <!-- ข้อความประวัติ โต๋-->
+                        <div>
+                           <h6 class="fw-bold fs-4 text-dark mb-1">ภูรินทร์ กูลมนุญ</h6>
+                           <p class="text-secondary fw-bold mb-0" style="font-size: 18px;">โต๋</p>
+                           <p class="text-muted mb-0" style="font-size: 18px; line-height: 1.5;">67101010641</p>
+                        </div>
+
                     </div>
                 </div>
+
 
             </div>
         </div>

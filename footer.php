@@ -201,7 +201,7 @@
 
     <div class="footer-bottom">
         <div class="container">
-            © 2024 มหาวิทยาลัยศรีนครินทรวิโรฒ | Srinakharinwirot University
+            คณะมนุษยศาสตร์ หลักสูตรฯ สารสนเทศศึกษา |  Faculty of Humanities, Information Studies
         </div>
     </div>
 </footer>

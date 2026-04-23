@@ -112,7 +112,7 @@
                                                             <input type="hidden" name="save_supervision" value="1">
                                                             
                                                             <div class="alert alert-light border mb-4">
-                                                                <b>นักศึกษา:</b> <span class="text-primary"><?php echo $r['student_code']; ?></span><br>
+                                                                <b>นิสิต:</b> <span class="text-primary"><?php echo $r['student_code']; ?></span><br>
                                                                 <b>สถานที่:</b> <?php echo $r['company_name']; ?>
                                                             </div>
                                                             <div class="mb-3">

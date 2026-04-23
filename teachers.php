@@ -42,8 +42,8 @@
     }
 
     .profile-img-wrapper {
-        width: 140px;
-        height: 140px;
+        width: 180px;
+        height: 180px;
         background-color: #f8f9fa;
         border-radius: 50%;
         display: flex;
