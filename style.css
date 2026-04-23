@@ -3,7 +3,6 @@
 :root { --swu-red: #c4122d; }
 body { font-family: 'Kanit', sans-serif; overflow-x: hidden; background: #fafafa;}
 
-/* Navbar & Footer */
 .custom-navbar { background: white; border-bottom: 1px solid #ddd; }
 .top-red-bar { background-color: var(--swu-red); height: 15px; width: 100%; }
 .navbar-brand img { height: 50px; margin-right: 15px; }
