@@ -121,7 +121,7 @@
                 <div class="col-12 mb-4">
                     <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
+                            <img src="./img/bbfifa.jpg" alt="รูปอาจารย์">
                         </div>
 
                         <!-- ข้อความประวัติ ฟีฟ่า-->
@@ -138,7 +138,7 @@
                 <div class="col-12 mb-4">
                     <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
+                            <img src="./img/bbtoey.jpg" alt="รูปอาจารย์">
                         </div>
 
                         <!-- ข้อความประวัติ ใบเตย-->
@@ -156,7 +156,7 @@
                 <div class="col-12 mb-4">
                     <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
+                            <img src="./img/bbnene.jpg" alt="รูปอาจารย์">
                         </div>
 
                         <!-- ข้อความประวัติ เนเน่-->
@@ -174,7 +174,7 @@
                 <div class="col-12 mb-4">
                     <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
+                            <img src="./img/bbikoo.jpg" alt="รูปอาจารย์">
                         </div>
 
                         <!-- ข้อความประวัติ ไอโกะ-->
@@ -192,7 +192,7 @@
                <div class="col-12 mb-4">
                     <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
+                            <img src="./img/bbploy.jpg" alt="รูปอาจารย์">
                         </div>
 
                         <!-- ข้อความประวัติ พลอย-->
@@ -209,7 +209,7 @@
                 <div class="col-12 mb-4">
                     <div class="teacher-card d-flex align-items-center text-start p-3" data-bs-toggle="modal" data-bs-target="#modalTeacher1">
                         <div class="profile-img-wrapper">
-                            <img src="./img/t_Dit.jpg" alt="รูปอาจารย์">
+                            <img src="./img/bbtotto.jpg" alt="รูปอาจารย์">
                         </div>
 
                         <!-- ข้อความประวัติ โต๋-->
